@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: levelupdevops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: levelupdevops
+  template:
+    metadata:
+      labels:
+        app: levelupdevops
+        version: IMAGE_LABEL
+    spec:
+      containers:
+      - name: levelupdevops
+        image: ACR_URL/levelupdevops:IMAGE_LABEL
+        ports:
+        - containerPort: 80
+        resources: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: levelupdevops
+spec:
+  type: NodePort
+  selector:
+    app: levelupdevops
+  ports:
+  - port: 80
+    targetPort: 80
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: levelupdevops
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  rules:
+  # https://docs.microsoft.com/en-us/azure/aks/http-application-routing
+  - host: levelupdevops.AKS_URL
+    http:
+      paths:
+      - backend:
+          serviceName: levelupdevops
+          servicePort: 80
+        path: /
