@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Docker Login
         uses: docker/login-action@v1.14.1
         with:
@@ -21,7 +21,7 @@ jobs:
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
           logout: true
-          
+
       - name: Kubernetes Set Context
         uses: Azure/k8s-set-context@v2
         with:
@@ -34,4 +34,4 @@ jobs:
           docker push ${{ secrets.ACR_URL }}/levelupdevops:${{ github.sha }}
           sed -i'' -e 's/ACR_URL/${{ secrets.ACR_URL }}/g' -e 's/AKS_URL/${{ secrets.AKS_URL }}/g' -e 's/IMAGE_LABEL/${{ github.sha }}/g' k8s.yaml
           kubectl apply -f k8s.yaml
-          
+

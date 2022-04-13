@@ -11,3 +11,4 @@ obj
 .venv
 appsettings.Development.json
 launchSettings.json
+k8s.yaml
