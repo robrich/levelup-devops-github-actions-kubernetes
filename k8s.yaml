@@ -7,7 +7,6 @@ spec:
   selector:
     matchLabels:
       app: levelupdevops
-      version: IMAGE_LABEL
   template:
     metadata:
       labels:

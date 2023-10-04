@@ -1,4 +1,4 @@
-name: Docker Build and Push, Kubernetes Run
+name: Docker Build a PR
 
 on:
   push:
