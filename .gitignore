@@ -1,0 +1,19 @@
+# downloaded files
+node_modules
+# built files
+bin
+obj
+# user-specific files
+*.user
+.vs
+.vscode
+.idea
+# temp files
+__pycache__
+.DS_Store
+*.tmp
+*.log
+*.zip
+*.orig
+# secrets
+.env

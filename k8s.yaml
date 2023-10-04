@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: levelupdevops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: levelupdevops
+      version: IMAGE_LABEL
+  template:
+    metadata:
+      labels:
+        app: levelupdevops
+        version: IMAGE_LABEL
+    spec:
+      containers:
+      - name: levelupdevops
+        image: ACR_URL/levelupdevops:IMAGE_LABEL
+        resources: {}
+        ports:
+        - containerPort: 80
+        env:
+        - name: ConnectionStrings__MyDB
+          value: Server=azuredb;....
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: levelupdevops
+spec:
+  selector:
+    app: levelupdevops
+  ports:
+  - port: 80
+    targetPort: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: levelupdevops
+  labels:
+    name: levelupdevops
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    acme.cert-manager.io/http01-edit-in-place: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - levelupdevops.AKS_URL
+    secretName: tls-secret
+  rules:
+  - host: levelupdevops.AKS_URL
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: levelupdevops
+            port:
+              number: 80
