@@ -17,6 +17,7 @@ __pycache__
 *.orig
 # secrets
 .env
+k8s.yaml
 # non-production files
 appsettings.Development.json
 **/launchSettings.json

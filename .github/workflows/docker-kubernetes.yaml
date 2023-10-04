@@ -26,7 +26,7 @@ jobs:
       with:
         method: kubeconfig
         kubeconfig: ${{ secrets.KUBE_CONFIG }}
-    
+
     - name: Docker Build & Push, Kubectl apply
       run: |
         docker build --tag ${{ secrets.ACR_URL }}/levelupdevops:${{ github.sha }} .
