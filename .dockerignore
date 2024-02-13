@@ -1,0 +1,18 @@
+# downloaded
+
+# built
+bin
+obj
+dist
+# user-specific
+*.user
+*.suo
+.vs
+.vscode
+# temp
+*.orig
+*.tmp
+# secrets
+# non-production
+appsettings.Development.json
+**/launchSettings.json

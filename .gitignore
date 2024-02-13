@@ -1,0 +1,15 @@
+# downloaded
+
+# built
+bin
+obj
+dist
+# user-specific
+*.user
+*.suo
+.vs
+.vscode
+# temp
+*.orig
+*.tmp
+# secrets
