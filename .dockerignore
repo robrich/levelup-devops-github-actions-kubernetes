@@ -16,3 +16,4 @@ dist
 # non-production
 appsettings.Development.json
 **/launchSettings.json
+k8s.yaml
