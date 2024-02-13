@@ -6,9 +6,9 @@ WORKDIR /src
 COPY LevelUpDevOps.csproj .
 RUN dotnet restore
 COPY . .
-RUN dotnet build -c Release
-RUN dotnet test -c Release
-RUN dotnet publish -c Release -o /dist
+RUN dotnet build -c Release LevelUpDevOps.csproj
+RUN dotnet test -c Release LevelUpDevOps.csproj
+RUN dotnet publish -c Release -o /dist LevelUpDevOps.csproj
 
 # production runtime "server" image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine
