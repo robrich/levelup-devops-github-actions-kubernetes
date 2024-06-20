@@ -18,6 +18,7 @@
 .DS_Store
 # secrets
 .env
+k8s.yaml
 # non-production content
 appsettings.Development.json
 **/launchSettings.json

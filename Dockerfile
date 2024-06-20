@@ -5,11 +5,11 @@ WORKDIR /src
 
 COPY LevelUpDevOps.csproj .
 COPY demo.sln .
-RUN dotnet restore
+RUN dotnet restore demo.sln
 
 COPY . .
-RUN dotnet build -c Release
-RUN dotnet test -c Release
+RUN dotnet build -c Release demo.sln
+RUN dotnet test -c Release demo.sln
 RUN dotnet publish -c Release -o /dist LevelUpDevOps.csproj
 
 
