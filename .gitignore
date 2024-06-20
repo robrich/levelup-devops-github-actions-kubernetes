@@ -1,0 +1,20 @@
+# downloaded content
+node_modules
+__pycache__
+# built content
+bin
+obj
+dist
+# user files
+*.user
+*.suo
+.vs
+.vscode
+.idea
+# temp files
+*.tmp
+*.bak
+*.orig
+.DS_Store
+# secrets
+.env
