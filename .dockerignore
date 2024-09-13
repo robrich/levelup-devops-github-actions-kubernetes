@@ -20,3 +20,4 @@
 # non-production files
 appsettings.*.json
 **/launchSettings.json
+k8s.yaml

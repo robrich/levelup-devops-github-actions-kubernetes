@@ -1,5 +1,5 @@
 # build "server" image
-FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine
+FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine as build
 
 WORKDIR /src
 
@@ -10,7 +10,7 @@ RUN dotnet restore demo.sln
 COPY . .
 RUN dotnet build -c Release demo.sln
 RUN dotnet test -c Release demo.sln
-RUN dotnet publish -c Release -o /app demo.sln
+RUN dotnet publish -c Release -o /dist demo.sln
 
 
 # production runtime "server" image
@@ -22,4 +22,5 @@ EXPOSE 8080
 ENV ConnectionStrings__MyDB ""
 
 WORKDIR /app
+COPY --from=build /dist .
 CMD ["dotnet", "LevelUpDevOps.dll"]
