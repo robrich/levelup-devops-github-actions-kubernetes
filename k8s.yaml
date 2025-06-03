@@ -7,15 +7,15 @@ spec:
   selector:
     matchLabels:
       app: levelupdevops
-      version: IMAGE_LABEL
   template:
     metadata:
       labels:
         app: levelupdevops
+        version: IMAGE_LABEL
     spec:
       containers:
       - name: levelupdevops
-        image: ACR_URL/levelupdevops:IMAGE_TAG
+        image: ACR_URL/levelupdevops:IMAGE_LABEL
         resources:
           limits:
             memory: "128Mi"
