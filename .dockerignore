@@ -1,0 +1,20 @@
+# downloaded files
+node_modules
+packages
+# built files
+bin
+obj
+dist
+# user-specific files
+*.user
+*.suo
+.vs
+# temp files
+*.tmp
+*.log
+*.orig
+# secrets
+.env
+# non-production files
+appsettings.Development.json
+**/launchSettings.json
