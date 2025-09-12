@@ -19,6 +19,8 @@
 .DS_Store
 # secrets
 .env
+k8s.yaml
+Dockerfile
 # non-production files
 appsettings.*.json
 **/launchSettings.json
