@@ -1,0 +1,21 @@
+# downloaded files
+# built files
+bin
+obj
+#dist
+Debug
+Release
+# user-specific files
+*.suo
+*.user
+.vs
+.vscode
+*.zip
+*.tar
+*.tar.gz
+# temp files
+*.tmp
+*.orig
+.DS_Store
+# secrets
+.env
